@@ -1,0 +1,17 @@
+version: "3.9"
+
+services:
+  storage:
+    build:
+      context: .       
+      dockerfile: Dockerfile
+    env_file:
+      - .env           
+    ports:
+      - "8008:8000"
+    volumes:
+      - ./db:/app/db 
+      - /mnt/deven:/mnt/deven
+      - /mnt/schme:/mnt/schme
+      - /plex1:/plex1
+    restart: unless-stopped
